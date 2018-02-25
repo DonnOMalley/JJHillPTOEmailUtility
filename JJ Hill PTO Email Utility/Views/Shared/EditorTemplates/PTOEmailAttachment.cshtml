@@ -1,0 +1,18 @@
+﻿@model JJ_Hill_PTO_Email_Utility.Models.PTOEmailAttachment
+
+
+<div id="AttachmentItem" name="AttachmentItem" class="AttachmentItem">
+
+  @using (Html.BeginCollectionItem("Attachments"))
+  {
+    <script type="text/javascript">
+      $("a.RemoveAttachment").on('click', function () {
+        $(this).parents("div.AttachmentItem:first").remove();
+        return false;
+      });
+    </script>
+    @Html.TextBoxFor(model => model.Attachment, new { type = "file", @class = "form-control" })
+    <a href="#" id="RemoveAttachment" name="RemoveAttachment" class="RemoveAttachment">Remove Attachment</a>
+
+  }
+</div>
