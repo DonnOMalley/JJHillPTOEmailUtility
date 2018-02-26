@@ -52,12 +52,13 @@
     </div>
 
     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      @Html.LabelFor(model => model.EmailMessage, htmlAttributes: new { @class = "control-label" })
-      @Html.TextAreaFor(model => model.EmailMessage, new { @class = "form-control", @rows = "20", @cols = "200" })
-      @Html.ValidationMessageFor(model => model.EmailMessage, "", new { @class = "text-danger" })
+      @Html.LabelFor(model => model.HtmlEmailMessage, htmlAttributes: new { @class = "control-label" })
+      @Html.HiddenFor(model => model.EmailMessage)
+      @Html.TextAreaFor(model => model.HtmlEmailMessage, new { @class = "form-control", @rows = "20", @cols = "220" })
+      @Html.ValidationMessageFor(model => model.HtmlEmailMessage, "", new { @class = "text-danger" })
     </div>
 
-    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">      
+    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Attachments:
       <input type="button" name="AddAttachment" id="AddAttachment" value="Add Attachment " class="btn-default" />
       <div id="AttachmentList">
@@ -67,7 +68,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-7 col-lg-offset-8 col-md-offset-8 col-lg-10 col-md-10 col-sm-10">
-        <input type="submit" value="Send Emails" class="btn btn-default" />
+        <input id="sendEmailsSubmit" type="submit" value="Send Emails" class="btn btn-default" />
       </div>
     </div>
   </div>
@@ -87,5 +88,17 @@
       });
       return false;
     });
+
+    $('#HtmlEmailMessage').htmlarea({
+      toolbar: [
+                  ["p", "bold", "italic", "underline", "|", "unorderedList", "indent", "outdent"],
+                  ["image", "link", "unlink"],
+                  ["justifyleft", "justifycenter"]
+      ]
+    });
+
+    $('#sendEmailsSubmit').click(function () {
+      $('#EmailMessage').val($('#HtmlEmailMessage').htmlarea("toString"))
+    })
   </script>
 }

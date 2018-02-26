@@ -16,6 +16,7 @@ namespace JJ_Hill_PTO_Email_Utility.Controllers
     }
 
     [HttpPost]
+    [ValidateInput(false)]
     public ActionResult Index(PTOEmail email)
     {
       try

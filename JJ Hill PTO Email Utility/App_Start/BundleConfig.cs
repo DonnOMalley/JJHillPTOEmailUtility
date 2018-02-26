@@ -23,8 +23,12 @@ namespace JJ_Hill_PTO_Email_Utility
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
+      bundles.Add(new ScriptBundle("~/bundles/jHtmlArea").Include(
+                  "~/Scripts/jHtmlArea-0.8.js"));
+
       bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                "~/Content/jHtmlArea/jHtmlArea.css",
                 "~/Content/site.css"));
     }
   }

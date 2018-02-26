@@ -11,6 +11,7 @@ namespace JJ_Hill_PTO_Email_Utility.Models
     [Display(Name = "Email Domain")]
     [Required]
     public string EmailDomain { get; set; }
+
     [Display(Name = "API Key")]
     [Required]
     public string EmailAPIKey { get; set; }
@@ -19,6 +20,7 @@ namespace JJ_Hill_PTO_Email_Utility.Models
     [AllowHtml]
     [Required]
     public string FromAddress { get; set; }
+
     [Display(Name = "\"To\" Email List")]
     [DataType(DataType.MultilineText)]
     [Required]
@@ -28,13 +30,18 @@ namespace JJ_Hill_PTO_Email_Utility.Models
     [DataType(DataType.MultilineText)]
     [Required]
     public string bccAddresses { get; set; }
+
     [Display(Name = "Subject")]
     [Required]
     public string EmailSubject { get; set; }
+
+    public string EmailMessage { get; set; }
+
     [Display(Name = "Email Message")]
     [DataType(DataType.MultilineText)]
     [Required]
-    public string EmailMessage { get; set; }
+    public string HtmlEmailMessage { get; set; }
+
     [Display(Name = "Attachment(s)")]
     public List<PTOEmailAttachment> Attachments { get; set; }
 
@@ -46,15 +53,16 @@ namespace JJ_Hill_PTO_Email_Utility.Models
       ToAddress = Properties.Settings.Default.DefaultToAddress;
       Attachments = new List<PTOEmailAttachment>();
 
-      EmailMessage = Environment.NewLine +
-                            Environment.NewLine +
-                            "Thank you," + Environment.NewLine +
-                            "JJ Hill PTO" + Environment.NewLine +
-                            Properties.Settings.Default.WebsiteAddress + Environment.NewLine +
-                            Properties.Settings.Default.FacebookGroupAddress + Environment.NewLine +
-                            Environment.NewLine +
-                            "If you would rather not receive PTO emails, please email info@jjhillpto.org with the subject of \"unsubscribe\"";
-
+      HtmlEmailMessage = "Hello JJ Hill Community,<br>" +
+                          "<br>" +
+                          "<br>" +
+                          "Thank you,<br>" +
+                          "JJ Hill PTO<br>" +
+                          "<a href = 'http://www.jjhillpto.org'> http://www.jjhillpto.org</a><br>" +
+                          "<a href = 'https://www.facebook.com/GROUPS/JJHillPTC'>https://www.facebook.com/groups/JJHillPTC</a>" + 
+                          "<br />" +
+                          "<br />" +
+                          "If you would rather not receive PTO emails, please send email to <a href='mailto:info@jjhillpto.org?subject=unsubscript&body=Please%20unsubscribe%20me%20from%20the%20JJ%20Hill%20PTO%20emails'>info@jjhillpto.org </a> with the subject line \"unsubscribe\"";
     }
   }
 }

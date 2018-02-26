@@ -23,10 +23,11 @@ namespace JJ_Hill_PTO_Email_Utility.Models
       request.AddParameter("bcc", email.bccAddresses.Replace("\r\n", ",").Replace(";", ",").Replace(" ", ","));
       request.AddParameter("subject", email.EmailSubject);
       request.AddParameter("text", email.EmailMessage);
+      request.AddParameter("html", email.HtmlEmailMessage);
 
-      foreach(PTOEmailAttachment a in email.Attachments)
+      foreach (PTOEmailAttachment a in email.Attachments)
       {
-        if((a.Attachment != null) && (a.Attachment.FileName.Trim().Length > 0))
+        if ((a.Attachment != null) && (a.Attachment.FileName.Trim().Length > 0))
         {
           MemoryStream ms = new MemoryStream();
           a.Attachment.InputStream.CopyTo(ms);
