@@ -12,10 +12,7 @@ namespace JJ_Hill_PTO_Email_Utility.Controllers
     [HttpGet]
     public ActionResult Index()
     {
-      PTOEmail email = new PTOEmail();
-
-      email.EmailMessage = Environment.NewLine + Environment.NewLine + "Thank you," + Environment.NewLine + "JJ Hill PTO" + Environment.NewLine + Environment.NewLine + "If you would rather not receive PTO emails, please email info@jjhillpto.org with the subject of \"unsubscribe\"";
-      return View(email);
+      return View(new PTOEmail());
     }
 
     [HttpPost]

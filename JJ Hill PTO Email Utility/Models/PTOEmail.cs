@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web;
-
+using System;
 
 namespace JJ_Hill_PTO_Email_Utility.Models
 {
@@ -40,11 +40,21 @@ namespace JJ_Hill_PTO_Email_Utility.Models
 
     public PTOEmail()
     {
-      EmailDomain = "jjhillpto.org";
-      EmailAPIKey = "key-e6b4255d365c6a4d17987f659eb7f30b";
-      FromAddress = "JJ Hill PTO <no-reply@jjhillpto.org>";
-      ToAddress = "no-reply@jjhillpto.org";
+      EmailDomain = Properties.Settings.Default.EmailDomain;
+      EmailAPIKey = Properties.Settings.Default.EmailAPIKEy;
+      FromAddress = Properties.Settings.Default.DefaultFromAddress;
+      ToAddress = Properties.Settings.Default.DefaultToAddress;
       Attachments = new List<PTOEmailAttachment>();
+
+      EmailMessage = Environment.NewLine +
+                            Environment.NewLine +
+                            "Thank you," + Environment.NewLine +
+                            "JJ Hill PTO" + Environment.NewLine +
+                            Properties.Settings.Default.WebsiteAddress + Environment.NewLine +
+                            Properties.Settings.Default.FacebookGroupAddress + Environment.NewLine +
+                            Environment.NewLine +
+                            "If you would rather not receive PTO emails, please email info@jjhillpto.org with the subject of \"unsubscribe\"";
+
     }
   }
 }
