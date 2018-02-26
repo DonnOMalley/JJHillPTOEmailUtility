@@ -28,7 +28,7 @@ namespace JJ_Hill_PTO_Email_Utility
 
       bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
-                "~/Content/jHtmlArea/jHtmlArea.css",
+                "~/Content/jHtmlArea.css",
                 "~/Content/site.css"));
     }
   }
