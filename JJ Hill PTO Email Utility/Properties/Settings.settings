@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JJ_Hill_PTO_Email_Utility.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="EmailAPIKEy" Type="System.String" Scope="Application">
+    <Setting Name="EmailAPIKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">key-e6b4255d365c6a4d17987f659eb7f30b</Value>
     </Setting>
     <Setting Name="EmailDomain" Type="System.String" Scope="Application">

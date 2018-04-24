@@ -48,7 +48,7 @@ namespace JJ_Hill_PTO_Email_Utility.Models
     public PTOEmail()
     {
       EmailDomain = Properties.Settings.Default.EmailDomain;
-      EmailAPIKey = Properties.Settings.Default.EmailAPIKEy;
+      EmailAPIKey = Properties.Settings.Default.EmailAPIKey;
       FromAddress = Properties.Settings.Default.DefaultFromAddress;
       ToAddress = Properties.Settings.Default.DefaultToAddress;
       Attachments = new List<PTOEmailAttachment>();
@@ -59,7 +59,7 @@ namespace JJ_Hill_PTO_Email_Utility.Models
                           "Thank you,<br>" +
                           "JJ Hill PTO<br>" +
                           "<a href = 'http://www.jjhillpto.org'> http://www.jjhillpto.org</a><br>" +
-                          "<a href = 'https://www.facebook.com/GROUPS/JJHillPTC'>https://www.facebook.com/groups/JJHillPTC</a>" + 
+													"<a href = 'https://www.facebook.com/groups/JJHILLPTC'>https://www.facebook.com/groups/JJHILLPTC</a>" + 
                           "<br />" +
                           "<br />" +
                           "If you would rather not receive PTO emails, please send email to <a href='mailto:info@jjhillpto.org?subject=unsubscript&body=Please%20unsubscribe%20me%20from%20the%20JJ%20Hill%20PTO%20emails'>info@jjhillpto.org </a> with the subject line \"unsubscribe\"";
